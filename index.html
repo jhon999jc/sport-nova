@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JHON SPORT</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+
+        /* Navegación */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0099ff;
+        }
+        .menu a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+        }
+        .menu a:hover { color: #0099ff; }
+
+        /* Banner Principal */
+        .banner {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #00bfff, #0080ff);
+            min-height: 450px;
+            padding: 0 40px;
+            gap: 30px;
+        }
+        .foto-lado {
+            width: 280px;
+            height: 280px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .texto-centro {
+            flex: 1;
+            text-align: center;
+            color: white;
+        }
+        .texto-centro h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        .texto-centro p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        /* Botones */
+        .boton {
+            display: inline-block;
+            padding: 13px 35px;
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 17px;
+            margin: 6px;
+            transition: transform 0.2s;
+        }
+        .boton:hover { transform: scale(1.05); }
+        .naranja { background: #ff9f69; }
+        .verde { background: #25D366; }
+
+        /* Características */
+        .caracteristicas {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            padding: 50px 40px;
+            background: #f9f9f9;
+            text-align: center;
+        }
+        .caja {
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        }
+        .caja h3 { color: #0099ff; margin-bottom: 10px; }
+
+        /* Productos con Imagen */
+        .productos {
+            padding: 50px 40px;
+        }
+        .productos h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .producto {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .producto:hover { transform: translateY(-5px); }
+        .img-producto {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .producto h3 { color: #0099ff; margin-bottom: 8px; }
+        .precio {
+            font-size: 24px;
+            font-weight: bold;
+            color: #25D366;
+            margin: 10px 0;
+        }
+        .detalle { color: #666; margin-bottom: 15px; font-size: 14px; }
+
+        /* Formulario */
+        .pedido {
+            padding: 50px 40px;
+            background: #f0f8ff;
+        }
+        .pedido h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .caja-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .campo {
+            margin-bottom: 18px;
+        }
+        .campo label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #444;
+        }
+        .campo input, .campo textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+        .btn-enviar {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 14px;
+        }
+
+        /* Pie de página */
+        .pie {
+            background: #222;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .pie p { margin: 8px 0; }
+        .pie a { color: #25D366; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <!-- 📌 MENÚ -->
+    <nav>
+        <div class="logo">🏃 JHON SPORT</div>
+        <div class="menu">
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#pedido">Pedir</a>
+            <a href="https://wa.me/59163767616?text=Hola! Quiero contactar con ustedes 💬" target="_blank">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- 🔵 BANNER PRINCIPAL con imagen -->
+    <section class="banner" id="inicio">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRama2_g0-GRexLf12jhSq5LWqxfNy7jmccRVBSoR4yASVqXwCrIgUQ0tE&s=10" alt="Ropa deportiva" class="foto-lado">
+        <div class="texto-centro">
+            <h1>Tu Mejor Versión Empieza Aquí</h1>
+            <p>Ropa deportiva de calidad premium. Diseñada para rendir, cómoda para ti.<br>
+            Envíos a toda Sucre y a toda Bolivia.</p>
+            
+            <a href="https://wa.me/59163767616?text=Hola! Quiero ver el Catálogo completo 📋" target="_blank" class="boton naranja">
+                🛒 Ver Catálogo
+            </a>
+            <a href="https://wa.me/59163767616?text=Hola! Quiero hacer un pedido ahora 📲" target="_blank" class="boton verde">
+                💬 Pedir por WhatsApp
+            </a>
+            <p style="margin-top: 20px; opacity: 0.9;">Ropa deportiva</p>
+        </div>
+    </section>
+
+    <!-- ⭐ CARACTERÍSTICAS -->
+    <section class="caracteristicas">
+        <div class="caja">
+            <h3>✅ Calidad Premium</h3>
+            <p>Telas duraderas y cómodas.</p>
+        </div>
+        <div class="caja">
+            <h3>💰 Precio Justo</h3>
+            <p>Sin intermediarios.</p>
+        </div>
+        <div class="caja">
+            <h3>🚚 Envío Rápido</h3>
+            <p>A toda Bolivia.</p>
+        </div>
+        <div class="caja">
+            <h3>❤️ Hecho con Amor</h3>
+            <p>Pensado para ti.</p>
+        </div>
+    </section>
+
+    <!-- 👕 PRODUCTOS con IMÁGENES + WhatsApp -->
+    <section class="productos" id="productos">
+        <h2>Nuestros Productos</h2>
+        <div class="grid-productos">
+            
+            <!-- 1. Camiseta -->
+            <div class="producto">
+                <img src="https://radiomegaestacion.com/wp-content/uploads/2026/06/se-empieza-a-sentir-el-mundial-adidas-oficializo-mas-de-20-camisetas.webp" alt="Camiseta Deportiva" class="img-producto">
+                <h3> Camiseta Deportiva</h3>
+                <p class="detalle">Transpirable, secado rápido. Ideal para todo deporte.</p>
+                <p class="precio">Bs 89</p>
+                <p class="detalle">Tallas: S, M, L, XL • Colores: Todos</p>
+                
+                </a>
+            </div>
+
+            <!-- 2. Pantalón -->
+            <div class="producto">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmEZm-LIKSjx602eLMqIq-zd4L9cGxQSMkFd1H4vS6sdP-ce9gL9nrrpA&s=10" alt="Pantalón Deportivo" class="img-producto">
+                <h3> Pantalón Deportivo</h3>
+                <p class="detalle">Elástico, suave, con bolsillos. Comodidad todo el día.</p>
+                <p class="precio">Bs 125</p>
+                <p class="detalle">Tallas: S, M, L, XL • Colores: Todos</p>
+                
+                </a>
+            </div>
+
+            <!-- 3. Short -->
+            <div class="producto">
+                <img src="https://img.avellanedaaltoque.com/productos/3108371/1gnd.jpg" alt="Short Deportivo" class="img-producto">
+                <h3> Short Deportivo</h3>
+                <p class="detalle">Cómodo y resistente. Libertad de movimiento.</p>
+                <p class="precio">Bs 199</p>
+                <p class="detalle">Tallas: M, L, XL • Colores: Todos</p>
+                
+                </a>
+            </div>
+
+            <!-- 4. Ropa Interior -->
+            <div class="producto">
+                <img src="https://i.ebayimg.com/images/g/P60AAOSwj91m9ExZ/s-l1200.webp" alt="Camiseta Mangalarga Deportiva" class="img-producto">
+                <h3> camiseta Mangalarga Deportiva</h3>
+                <p class="detalle">Suave, fresca y cómoda. No molesta al moverte.</p>
+                <p class="precio">Bs 72</p>
+                <p class="detalle">Tallas: S, M, L • Colores variados</p>
+                
+                </a>
+            </div>
+
+            <!-- 5. Conjunto -->
+            <div class="producto">
+                <img src="https://camisetasfutbolymas.com/wp-content/uploads/2024/03/madrid-26-27-conjunto-2.webp" alt="Conjunto Entrenamiento" class="img-producto">
+                <h3> Conjunto Entrenamiento</h3>
+                <p class="detalle">Camiseta + Pantalón. Completo y ahorras más.</p>
+                <p class="precio">Bs 185 <small style="color:green;">Descuento ✅</small></p>
+                <p class="detalle">Colores: Todos</p>
+                <a href="https://wa.me/59163767616?text=Hola! Quiero pedir el Conjunto 🎽 — Talla: ___, Color: ___, Cantidad: ___" target="_blank" class="boton verde">
+                </a>
+            </div>
+
+            
+            <div class="producto">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWKtAx5V8ZoV97AbuNFrqYlkiNmxyexo6atRi3awJnjg3g0y4ChMnzqFc&s=10" alt="Bolso Deportivo" class="img-producto">
+                <h3> Bolso Deportivo</h3>
+                <p class="detalle">Resistente, amplio. Compartimento para zapatos.</p>
+                <p class="precio">Bs 145</p>
+                <p class="detalle">Colores: Todos</p>
+                
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📝 FORMULARIO -->
+    <section class="pedido" id="pedido">
+        <h2>📝 Enviar tu Pedido</h2>
+        <div class="caja-form">
+            <form 
+                action="https://wa.me/59163767616" 
+                method="get" 
+                target="_blank"
+                onsubmit="const t=document.getElementById('msg');t.value='PEDIDO:\nNombre: '+document.getElementById('nombre').value+'\nTeléfono: '+document.getElementById('tel').value+'\nDetalle: '+document.getElementById('detalle').value+'\nDirección: '+document.getElementById('dir').value+'\nComentarios: '+(document.getElementById('coment').value||'Ninguno')"
+            >
+                <input type="hidden" name="text" id="msg">
+                
+                <div class="campo">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="nombre" placeholder="Tu nombre y apellido" required>
+                </div>
+                <div class="campo">
+                    <label>Teléfono / WhatsApp</label>
+                    <input type="tel" id="tel" placeholder="+591 7XX XXX XXX" required>
+                </div>
+                <div class="campo">
+                    <label>Producto, Talla, Color y Cantidad</label>
+                    <input type="text" id="detalle" placeholder="Ej: Camiseta — M — Azul — 2" required>
+                </div>
+                <div class="campo">
+                    <label>Dirección de entrega</label>
+                    <input type="text" id="dir" placeholder="Barrio, calle, referencia..." required>
+                </div>
+                <div class="campo">
+                    <label>Comentarios</label>
+                    <textarea id="coment" rows="3" placeholder="Algo extra?"></textarea>
+                </div>
+                
+                <button type="submit" class="boton verde btn-enviar">📤 Enviar Pedido por WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 📞 PIE -->
+    <footer class="pie">
+        <h3>📞 Contáctanos</h3>
+        <p>📲 WhatsApp: <a href="https://wa.me/59163767616" target="_blank">+591 63767616</a></p>
+        <p>📧 Correo: jhonbismarcondori497@gmail.com</p>
+        <p>📍 Ubicación: Cruse Azari , Barrio 20 de marzo<P>
+        <p style="margin-top: 20px; font-size: 14px; opacity: 0.7;">© 2026 JHON SPORT</p>
+    </footer>
+
+</body>
+</html>
